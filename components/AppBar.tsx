@@ -1,10 +1,8 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-// import { Icons } from "@/components/icons";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -44,7 +42,7 @@ export function AppBar() {
                 <ListItem href="/dashboard" title="Introduction">
                   Re-usable components built using Radix UI and Tailwind CSS.
                 </ListItem>
-                <ListItem href="/docs/installation" title="Installation">
+                <ListItem href="/" title="Installation">
                   How to install dependencies and structure your app.
                 </ListItem>
                 <ListItem href="/docs/primitives/typography" title="Typography">

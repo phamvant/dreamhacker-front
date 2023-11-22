@@ -1,5 +1,6 @@
 import { BackEndURL } from "@/lib/constant";
 import { NextAuthOptions } from "next-auth";
+import { JWT } from "next-auth/jwt";
 import NextAuth from "next-auth/next";
 import Credentials from "next-auth/providers/credentials";
 
@@ -38,9 +39,9 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        const user = await res.json();
+        const receivedUserObject = await res.json();
 
-        return user;
+        return receivedUserObject;
       },
     }),
   ],
@@ -48,16 +49,40 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, user }) {
       if (user) return { ...token, ...user };
-
+      if (new Date().getTime() > token.backendTokens.expiresIn) {
+        return await refreshToken(token);
+      }
       return token;
     },
 
-    async session({ token, session }) {
+    async session({ session, token }) {
       session.user = token.user;
       session.backendTokens = token.backendTokens;
       return session;
     },
   },
+};
+
+const refreshToken = async (token: JWT): Promise<JWT> => {
+  const res = await fetch(BackEndURL + "/auth/refresh", {
+    method: "POST",
+    headers: {
+      authorization: `Refresh ${token.backendTokens.refreshTokenKey}`,
+      "Content-type": "application/json",
+    },
+  });
+
+  if (res.status === 201) {
+    console.log("refreshed");
+    const { backendTokens } = await res.json();
+
+    return {
+      ...token,
+      backendTokens: backendTokens,
+    };
+  }
+
+  return { ...token };
 };
 
 const handler = NextAuth(authOptions);

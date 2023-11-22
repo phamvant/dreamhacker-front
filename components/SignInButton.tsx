@@ -2,7 +2,6 @@
 
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import {
   Dialog,
@@ -20,9 +19,8 @@ import ProfileButton from "./ProfileButton";
 const SignInButton = () => {
   const { data: session } = useSession();
 
+  console.log(session);
   if (session && session.user) {
-    console.log(session);
-
     const props = {
       userid: session.user.id,
       username: session.user.username,

@@ -69,7 +69,7 @@ const SignUpForm = () => {
     }
     const response = await res.json();
     alert("User Registered!");
-    console.log({ response });
+    // console.log({ response });
   }
 
   return (
