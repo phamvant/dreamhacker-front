@@ -35,7 +35,7 @@ export const authOptions: NextAuthOptions = {
         });
 
         if (res.status === 401) {
-          console.log(res.statusText);
+          // console.log(res.statusText);
           return null;
         }
 
@@ -73,7 +73,7 @@ const refreshToken = async (token: JWT): Promise<JWT> => {
   });
 
   if (res.status === 201) {
-    console.log("refreshed");
+    // console.log("refreshed");
     const { backendTokens } = await res.json();
 
     return {
