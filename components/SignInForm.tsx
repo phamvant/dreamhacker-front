@@ -1,10 +1,11 @@
-"use client";
+// "use client";
 
 import * as z from "zod";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ReloadIcon } from "@radix-ui/react-icons";
+import { getCsrfToken } from "next-auth/react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -13,79 +14,46 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./ui/select";
-import { BackEndURL } from "@/lib/constant";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 
 const formSchema = z.object({
-  username: z.string().min(2).max(50),
   email: z.string().email().min(5),
   password: z.string().min(8),
-  role: z.string(),
+  csrfToken: z.string(),
 });
 
-const SignUpForm = () => {
+const SignInForm = () => {
   const [status, setStatus] = useState(true);
   const [isFetching, setIsFetching] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "phamvant",
       email: "pt@gmail.com",
       password: "thuan286",
-      role: "Engineer",
+      csrfToken: "",
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsFetching((prev: boolean) => !prev);
+  useEffect(() => {
+    const getToken = async () => {
+      const token = await getCsrfToken();
+      form.setValue("csrfToken", token ?? "");
+    };
 
-    const res = await fetch(BackEndURL + "/auth/register", {
-      method: "POST",
-      body: JSON.stringify({
-        username: values.username,
-        email: values.email,
-        password: values.password,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (!res.ok) {
-      setStatus((prev: boolean) => !prev);
-      setIsFetching((prev: boolean) => !prev);
-      return;
-    }
-    const response = await res.json();
-    alert("User Registered!");
-    // console.log({ response });
-  }
+    getToken();
+  }, [form]);
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form method="post" action="/api/auth/callback/credentials">
         <FormField
           control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="Username" {...field} />
-              </FormControl>
-            </FormItem>
-          )}
+          name="csrfToken"
+          render={({ field }) => <input type="hidden" {...field} />}
         />
         <FormField
           control={form.control}
@@ -108,28 +76,6 @@ const SignUpForm = () => {
               <FormControl>
                 <Input type="password" placeholder="Email" {...field} />
               </FormControl>
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="role"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Role</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a verified email to display" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="Student">Student</SelectItem>
-                  <SelectItem value="Engineer">Engineer</SelectItem>
-                  <SelectItem value="Teacher">Teacher</SelectItem>
-                </SelectContent>
-              </Select>
-              <FormMessage />
             </FormItem>
           )}
         />
@@ -156,4 +102,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;

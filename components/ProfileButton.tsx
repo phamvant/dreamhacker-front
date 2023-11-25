@@ -1,13 +1,15 @@
+"use client";
+
 import React from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 
 interface props {
   userid: number;
@@ -26,8 +28,13 @@ const ProfileButton: React.FC<{ props: props }> = ({ props }) => {
               My Account
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Link className="text-md" href={"/api/auth/signout"}>
+          <DropdownMenuItem asChild>
+            <Link
+              href={""}
+              onClick={() => signOut({ callbackUrl: "http://localhost:3000/" })}
+              className="cursor-pointer"
+            >
+              {" "}
               Sign Out
             </Link>
           </DropdownMenuItem>

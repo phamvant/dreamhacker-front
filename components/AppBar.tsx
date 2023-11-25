@@ -11,7 +11,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import SignInButton from "./SignInButton";
+import AuthButton from "./AuthButton";
 import SearchBar from "./SearchBar";
 import Logo from "./Logo";
 import useViewport from "@/lib/viewPort";
@@ -52,7 +52,7 @@ export function AppBar() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <SignInButton />
+            <AuthButton />
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>

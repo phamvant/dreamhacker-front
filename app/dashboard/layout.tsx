@@ -1,10 +1,12 @@
+"use client";
+
 import React from "react";
 
 type Props = {
   children: React.ReactNode;
 };
 
-const DashboardLayout = async (props: Props) => {
+const DashboardLayout = (props: Props) => {
   return (
     <div className="flex h-screen">
       {/* Main Content Area */}

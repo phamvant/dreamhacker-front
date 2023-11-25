@@ -10,13 +10,13 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogClose,
   DialogFooter,
 } from "@/components/ui/dialog";
 import SignUpForm from "./SignUpForm";
 import ProfileButton from "./ProfileButton";
+import SignInForm from "./SignInForm";
 
-const SignInButton = () => {
+const AuthButton = () => {
   const { data: session } = useSession();
 
   if (session && session.user) {
@@ -29,11 +29,24 @@ const SignInButton = () => {
 
   return (
     <div className="flex flex-row justify-between">
-      <Button size={"sm"} className="h-8 mr-4">
-        <Link className="text-md" href={"/api/auth/signin"}>
-          Sign In
-        </Link>
-      </Button>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button size={"sm"} className="h-8 mr-4" variant={"default"}>
+            Sign In
+          </Button>
+        </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Sign In</DialogTitle>
+            <DialogDescription>
+              This action cannot be undone. This will permanently delete your
+              account and remove your data from our servers.
+            </DialogDescription>
+          </DialogHeader>
+          <SignInForm />
+          <DialogFooter className="sm:justify-start"></DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       <Dialog>
         <DialogTrigger asChild>
@@ -57,4 +70,4 @@ const SignInButton = () => {
   );
 };
 
-export default SignInButton;
+export default AuthButton;
