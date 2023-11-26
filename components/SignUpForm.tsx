@@ -1,10 +1,11 @@
 "use client";
 
 import * as z from "zod";
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ReloadIcon } from "@radix-ui/react-icons";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -26,6 +27,7 @@ import {
 } from "./ui/select";
 import { BackEndURL } from "@/lib/constant";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { signIn } from "next-auth/react";
 
 const formSchema = z.object({
   username: z.string().min(2).max(50),
@@ -41,10 +43,10 @@ const SignUpForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "phamvant",
-      email: "pt@gmail.com",
-      password: "thuan286",
-      role: "Engineer",
+      username: "",
+      email: "",
+      password: "",
+      role: "",
     },
   });
 
@@ -67,9 +69,9 @@ const SignUpForm = () => {
       setIsFetching((prev: boolean) => !prev);
       return;
     }
+    setIsFetching((prev: boolean) => !prev);
+
     const response = await res.json();
-    alert("User Registered!");
-    // console.log({ response });
   }
 
   return (

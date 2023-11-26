@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 import Providers from "@/components/Providers";
 import { AppBar } from "@/components/AppBar";
+import Footer from "@/components/footer";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -27,15 +28,9 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <AppBar />
-            {children}
-          </ThemeProvider>
+          <AppBar />
+          {children}
+          <Footer />
         </Providers>
       </body>
     </html>

@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import * as z from "zod";
 import React, { useEffect, useState } from "react";
@@ -49,7 +49,11 @@ const SignInForm = () => {
 
   return (
     <Form {...form}>
-      <form method="post" action="/api/auth/callback/credentials">
+      <form
+        method="post"
+        action="/api/auth/callback/credentials"
+        className="space-y-8"
+      >
         <FormField
           control={form.control}
           name="csrfToken"

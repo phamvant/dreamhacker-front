@@ -1,7 +1,6 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import Link from "next/link";
 import { Button } from "./ui/button";
 import {
   Dialog,
@@ -15,9 +14,11 @@ import {
 import SignUpForm from "./SignUpForm";
 import ProfileButton from "./ProfileButton";
 import SignInForm from "./SignInForm";
+import { useState } from "react";
 
 const AuthButton = () => {
   const { data: session } = useSession();
+  const [open, setOpen] = useState(false);
 
   if (session && session.user) {
     const props = {
@@ -35,7 +36,7 @@ const AuthButton = () => {
             Sign In
           </Button>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent className="w-5/6 rounded-lg">
           <DialogHeader>
             <DialogTitle>Sign In</DialogTitle>
             <DialogDescription>
@@ -48,13 +49,13 @@ const AuthButton = () => {
         </DialogContent>
       </Dialog>
 
-      <Dialog>
+      <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <Button size={"sm"} className="h-8" variant={"secondary"}>
             Sign Up
           </Button>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent className="w-5/6 rounded-lg">
           <DialogHeader>
             <DialogTitle>Sign Up Now</DialogTitle>
             <DialogDescription>

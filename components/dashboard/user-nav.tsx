@@ -10,15 +10,8 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { signOut } from "next-auth/react";
-import Link from "next/link";
 
-interface Props {
-  userid: number;
-  username: string;
-}
-
-const ProfileButton: React.FC<{ props: Props }> = ({ props }) => {
+const UserNav = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -32,19 +25,16 @@ const ProfileButton: React.FC<{ props: Props }> = ({ props }) => {
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">{props.username}</p>
+            <p className="text-sm font-medium leading-none">shadcn</p>
             <p className="text-xs leading-none text-muted-foreground">
-              {"ID: " + props.userid}
+              m@example.com
             </p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            {" "}
-            <Link className="text-md" href={`/dashboard/user/${props.userid}`}>
-              Profile
-            </Link>
+            Profile
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
@@ -58,15 +48,13 @@ const ProfileButton: React.FC<{ props: Props }> = ({ props }) => {
           <DropdownMenuItem>New Team</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem
-          className="cursor-pointer"
-          onClick={() => signOut({ callbackUrl: "http://localhost:3000/" })}
-        >
-          Sign Out
+        <DropdownMenuItem>
+          Log out
+          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
 };
 
-export default ProfileButton;
+export default UserNav;

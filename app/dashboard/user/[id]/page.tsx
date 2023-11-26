@@ -11,8 +11,6 @@ type Props = {
 const ProfilePage = async (props: Props) => {
   const session = await getServerSession(authOptions);
 
-  console.log(session);
-
   const response = await fetch(BackEndURL + `/user/${props.params.id}`, {
     method: "GET",
     headers: {
