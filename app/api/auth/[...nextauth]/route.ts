@@ -59,12 +59,22 @@ export const authOptions: NextAuthOptions = {
       session.backendTokens = token.backendTokens;
       return session;
     },
+
+    async redirect({ url, baseUrl }) {
+      // Allows relative callback URLs
+      baseUrl = "http://localhost:3000";
+      console.log(url, baseUrl);
+      if (url.startsWith("/")) return `${baseUrl}${url}`;
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) return url;
+      return baseUrl;
+    },
   },
 
   pages: {
-    signIn: "/auth/signin",
-    newUser: "/",
-    signOut: "",
+    // signIn: "/auth/signin",
+    // newUser: "/",
+    // signOut: "",
   },
 };
 
