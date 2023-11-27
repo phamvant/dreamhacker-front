@@ -1,5 +1,5 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { BackEndURL } from "@/lib/constant";
+import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 
 type Props = {
@@ -10,7 +10,6 @@ type Props = {
 
 const ProfilePage = async (props: Props) => {
   const session = await getServerSession(authOptions);
-
   const response = await fetch(BackEndURL + `/user/${props.params.id}`, {
     method: "GET",
     headers: {
