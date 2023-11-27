@@ -61,7 +61,7 @@ export const authOptions: NextAuthOptions = {
 
     async redirect({ url, baseUrl }) {
       // Allows relative callback URLs
-      baseUrl = "http://localhost:3000";
+      baseUrl = "https://dreamhacker-front.vercel.app";
       console.log(url, baseUrl);
       if (url.startsWith("/")) return `${baseUrl}${url}`;
       // Allows callback URLs on the same origin

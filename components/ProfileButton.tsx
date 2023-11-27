@@ -60,7 +60,9 @@ const ProfileButton: React.FC<{ props: Props }> = ({ props }) => {
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="cursor-pointer"
-          onClick={() => signOut({ callbackUrl: "http://localhost:3000/" })}
+          onClick={() =>
+            signOut({ callbackUrl: "https://dreamhacker-front.vercel.app/" })
+          }
         >
           Sign Out
         </DropdownMenuItem>
