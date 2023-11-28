@@ -10,7 +10,7 @@ const RecentSales = () => {
         </Avatar>
         <div className="ml-4 space-y-1">
           <p className="text-sm font-medium leading-none">Olivia Martin</p>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground hidden lg:block">
             olivia.martin@email.com
           </p>
         </div>
@@ -23,7 +23,9 @@ const RecentSales = () => {
         </Avatar>
         <div className="ml-4 space-y-1">
           <p className="text-sm font-medium leading-none">Jackson Lee</p>
-          <p className="text-sm text-muted-foreground">jackson.lee@email.com</p>
+          <p className="text-sm text-muted-foreground hidden lg:block">
+            jackson.lee@email.com
+          </p>
         </div>
         <div className="ml-auto font-medium">+$39.00</div>
       </div>
@@ -34,7 +36,7 @@ const RecentSales = () => {
         </Avatar>
         <div className="ml-4 space-y-1">
           <p className="text-sm font-medium leading-none">Isabella Nguyen</p>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground hidden lg:block">
             isabella.nguyen@email.com
           </p>
         </div>
@@ -47,7 +49,9 @@ const RecentSales = () => {
         </Avatar>
         <div className="ml-4 space-y-1">
           <p className="text-sm font-medium leading-none">William Kim</p>
-          <p className="text-sm text-muted-foreground">will@email.com</p>
+          <p className="text-sm text-muted-foreground hidden lg:block">
+            will@email.com
+          </p>
         </div>
         <div className="ml-auto font-medium">+$99.00</div>
       </div>
@@ -58,7 +62,9 @@ const RecentSales = () => {
         </Avatar>
         <div className="ml-4 space-y-1">
           <p className="text-sm font-medium leading-none">Sofia Davis</p>
-          <p className="text-sm text-muted-foreground">sofia.davis@email.com</p>
+          <p className="text-sm text-muted-foreground hidden lg:block">
+            sofia.davis@email.com
+          </p>
         </div>
         <div className="ml-auto font-medium">+$39.00</div>
       </div>

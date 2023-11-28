@@ -1,8 +1,6 @@
-"use client";
-
 import HeroHeader from "@/components/hero";
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <HeroHeader />

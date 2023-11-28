@@ -27,7 +27,7 @@ export async function AppBar() {
           </Link>
           <Link
             href={"/"}
-            className="border-slate-700 border rounded-2xl p-1 px-4"
+            className="border-slate-700 border rounded-2xl p-1 px-4 hidden lg:block"
           >
             Chase your dream
           </Link>
