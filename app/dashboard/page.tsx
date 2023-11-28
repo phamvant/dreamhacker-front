@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description: "Example dashboard app built using the components.",
 };
 
-const Dashboard = () => {
+const Dashboard = async () => {
   return (
     <>
       <div className="flex-col md:flex">

@@ -25,7 +25,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { BackEndURL } from "@/lib/constant";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 import { signIn } from "next-auth/react";
 
@@ -53,7 +52,7 @@ const SignUpForm = () => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsFetching((prev: boolean) => !prev);
 
-    const res = await fetch(BackEndURL + "/auth/register", {
+    const res = await fetch(process.env.BACKEND_URL + "/auth/register", {
       method: "POST",
       body: JSON.stringify({
         username: values.username,

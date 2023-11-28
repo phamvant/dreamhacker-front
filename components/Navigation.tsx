@@ -7,8 +7,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import AuthButton from "./AuthButton";
-import { cn } from "@/lib/utils";
 
 type Props = {
   children: JSX.Element | JSX.Element[];

@@ -1,4 +1,3 @@
-import { BackEndURL } from "@/lib/constant";
 import { NextAuthOptions } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import Credentials from "next-auth/providers/credentials";
@@ -22,7 +21,7 @@ export const authOptions: NextAuthOptions = {
       async authorize(credential, req) {
         if (!credential?.email || !credential.password) return null;
         const { email, password } = credential;
-        const res = await fetch(BackEndURL + "/auth/login", {
+        const res = await fetch(process.env.BACKEND_URL + "/auth/login", {
           method: "POST",
           body: JSON.stringify({
             email,
@@ -59,20 +58,20 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
 
-    async redirect({ url, baseUrl }) {
-      // Allows relative callback URLs
-      baseUrl = "https://dreamhacker-front.vercel.app";
-      console.log(url, baseUrl);
-      if (url.startsWith("/")) return `${baseUrl}${url}`;
-      // Allows callback URLs on the same origin
-      else if (new URL(url).origin === baseUrl) return url;
-      return baseUrl;
-    },
+    // async redirect({ url, baseUrl }) {
+    //   // Allows relative callback URLs
+    //   baseUrl = process.env.BASE_URL ?? "";
+    //   console.log(url, baseUrl);
+    //   if (url.startsWith("/")) return `${baseUrl}${url}`;
+    //   // Allows callback URLs on the same origin
+    //   else if (new URL(url).origin === baseUrl) return url;
+    //   return baseUrl;
+    // },
   },
 };
 
 const refreshToken = async (token: JWT): Promise<JWT> => {
-  const res = await fetch(BackEndURL + "/auth/refresh", {
+  const res = await fetch(process.env.BACKEND_URL + "/auth/refresh", {
     method: "POST",
     headers: {
       authorization: `Refresh ${token.backendTokens.refreshTokenKey}`,

@@ -14,12 +14,10 @@ import {
 import SignUpForm from "./SignUpForm";
 import ProfileButton from "./ProfileButton";
 import SignInForm from "./SignInForm";
-import { useState } from "react";
+import { authOptions } from "@/lib/auth";
+import { Session, getServerSession } from "next-auth";
 
-const AuthButton = () => {
-  const { data: session } = useSession();
-  const [open, setOpen] = useState(false);
-
+const AuthButton = ({ session }: { session: Session | null }) => {
   if (session && session.user) {
     const props = {
       userid: session.user.id,
@@ -49,7 +47,7 @@ const AuthButton = () => {
         </DialogContent>
       </Dialog>
 
-      <Dialog open={open} onOpenChange={setOpen}>
+      <Dialog>
         <DialogTrigger asChild>
           <Button size={"sm"} className="h-8" variant={"secondary"}>
             Sign Up

@@ -21,7 +21,7 @@ const MainNav = ({
         href="/dashboard"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
-        Customers
+        Dashboard
       </Link>
       <Link
         href="/dashboard"

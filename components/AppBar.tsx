@@ -1,19 +1,16 @@
-"use client";
-
 import * as React from "react";
 
 import useViewport from "@/lib/viewPort";
 import AuthButton from "./AuthButton";
 import MainNav from "./dashboard/main-nav";
 import Search from "./dashboard/search";
-import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { Session, getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
-export function AppBar() {
-  const { data: session } = useSession();
-
-  const viewPort = useViewport();
+export async function AppBar() {
+  const session = await getServerSession(authOptions);
 
   return (
     <div className="border-b">
@@ -40,24 +37,11 @@ export function AppBar() {
             <MainNav className="mx-6" />
           </>
         ) : (
-          <div>
-            {/* <Link href={"/"}>
-              <Image
-                src={"/rocket.svg"}
-                alt={""}
-                width={40}
-                height={40}
-                className="lg:mr-52"
-              />
-            </Link>
-            <Link href={"/"} className="hidden lg:inline-block" target="_blank">
-              Chase your dream
-            </Link> */}
-          </div>
+          <div></div>
         )}
         <div className="ml flex items-center space-x-4">
           <Search className={"hidden md:block lg:block"} />
-          <AuthButton />
+          <AuthButton session={session} />
         </div>
       </div>
     </div>
