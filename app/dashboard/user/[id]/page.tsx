@@ -28,7 +28,7 @@ const ProfilePage = async ({ params }: { params: { id: string } }) => {
 const getData = async (id: string) => {
   const session = await getServerSession(authOptions);
 
-  const response = await fetch("https://ptops.xyz" + `/user/${id}`, {
+  const response = await fetch(process.env.BACKEND_URL + `/user/${id}`, {
     method: "GET",
     headers: {
       authorization: `Bearer ${session?.backendTokens.accessToken}`,
