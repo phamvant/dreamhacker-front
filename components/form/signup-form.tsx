@@ -24,8 +24,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
-import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+} from "../ui/select";
+import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { signIn } from "next-auth/react";
 
 const formSchema = z.object({

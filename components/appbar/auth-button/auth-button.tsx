@@ -1,21 +1,19 @@
 "use client";
 
-import { useSession } from "next-auth/react";
-import { Button } from "./ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogFooter,
 } from "@/components/ui/dialog";
-import SignUpForm from "./SignUpForm";
-import ProfileButton from "./ProfileButton";
-import SignInForm from "./SignInForm";
-import { authOptions } from "@/lib/auth";
-import { Session, getServerSession } from "next-auth";
+import { Session } from "next-auth";
+import SignInForm from "../../form/signin-form";
+import SignUpForm from "../../form/signup-form";
+import { Button } from "../../ui/button";
+import ProfileButton from "./profile-button";
 
 const AuthButton = ({ session }: { session: Session | null }) => {
   if (session && session.user) {

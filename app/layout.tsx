@@ -3,7 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 
 import Providers from "@/components/Providers";
-import { AppBar } from "@/components/AppBar";
+import { AppBar } from "@/components/appbar/app-bar";
 import Footer from "@/components/footer";
 
 export const fontSans = FontSans({

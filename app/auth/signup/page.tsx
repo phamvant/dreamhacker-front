@@ -1,7 +1,7 @@
 "use client";
 
-import SignInForm from "@/components/SignInForm";
-import SignUpForm from "@/components/SignUpForm";
+import SignInForm from "@/components/form/signin-form";
+import SignUpForm from "@/components/form/signup-form";
 import {
   Card,
   CardDescription,

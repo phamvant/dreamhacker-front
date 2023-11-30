@@ -1,9 +1,9 @@
 import * as React from "react";
 
 import useViewport from "@/lib/viewPort";
-import AuthButton from "./AuthButton";
-import MainNav from "./dashboard/main-nav";
-import Search from "./dashboard/search";
+import AuthButton from "./auth-button/auth-button";
+import MainNav from "./main-nav";
+import Search from "./search";
 import Image from "next/image";
 import Link from "next/link";
 import { Session, getServerSession } from "next-auth";
