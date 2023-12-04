@@ -24,13 +24,13 @@ const MainNav = ({
         Dashboard
       </Link>
       <Link
-        href="/dashboard"
+        href="/blog"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
-        Products
+        Blog
       </Link>
       <Link
-        href="/dashboard"
+        href="/blog"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary hidden lg:block"
       >
         Settings

@@ -1,6 +1,6 @@
-import "./globals.css";
-import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { Inter as FontSans } from "next/font/google";
+import "./globals.css";
 
 import Providers from "@/components/Providers";
 import { AppBar } from "@/components/appbar/app-bar";
@@ -26,7 +26,7 @@ export default function RootLayout({
       >
         <Providers>
           <AppBar />
-          {children}
+          <div className="pt-20">{children}</div>
           <Footer />
         </Providers>
       </body>

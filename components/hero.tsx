@@ -1,7 +1,7 @@
-import Link from "next/link";
-import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 const HeroHeader = () => {
   return (
@@ -25,9 +25,7 @@ const HeroHeader = () => {
       </div>
       <div className="flex flex-1 justify-center lg:justify-end">
         <Image
-          src={
-            "https://nextlanding.rdev.pro/_next/image?url=%2Fhero-img.webp&w=640&q=75"
-          }
+          src={"/hero.png"}
           height={500}
           width={500}
           className="h-auto"
