@@ -16,13 +16,16 @@ export async function AppBar() {
         <div className="flex flex-row items-center gap-2 lg:gap-4">
           <Sidebar />
           <Link href={"/"}>
-            <Image src={"/rocket.svg"} alt={""} width={40} height={40} />
+            <Image
+              src={"/rocket.svg"}
+              alt={""}
+              width={40}
+              height={40}
+              className="hidden lg:block"
+            />
           </Link>
-          <Link
-            href={"/"}
-            className="border-slate-700 border rounded-2xl p-2 px-4 hidden lg:block"
-          >
-            Chase your dream
+          <Link href={"/"} className="text-2xl font-black text-blue-500 ">
+            ChaseYourDream
           </Link>
         </div>
         {session ? (
