@@ -28,15 +28,13 @@ export async function AppBar() {
             ChaseYourDream
           </Link>
         </div>
-        {session ? (
-          <div className="hidden xl:block">
-            <MainNav className="mx-6" />
-          </div>
-        ) : (
-          <div></div>
-        )}
+        <div className="hidden xl:block">
+          <MainNav isLogged={session ? true : false} className="mx-6" />
+        </div>
         <div className="ml flex items-center space-x-4">
-          <Search className={"hidden md:block lg:block"} />
+          <Search
+            className={"hidden md:block lg:block sm:w-[100px] md:w-[200px]"}
+          />
           <AuthButton session={session} />
         </div>
       </div>

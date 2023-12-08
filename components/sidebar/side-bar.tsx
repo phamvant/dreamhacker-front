@@ -3,7 +3,7 @@
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { navBarContent } from "../appbar/main-nav";
 import { Separator } from "../ui/separator";
 
@@ -17,10 +17,6 @@ function Sidebar() {
     toggleSidebar();
     setActivePage(index);
   };
-
-  useEffect(() => {
-    console.log(sidebar);
-  }, [sidebar]);
 
   return (
     <>
@@ -62,7 +58,7 @@ function Sidebar() {
                         activePage === index ? "text-blue-600" : ""
                       }`}
                     >
-                      <span>{item.title}</span>
+                      {item.title}
                     </Link>
                   </li>
                 );

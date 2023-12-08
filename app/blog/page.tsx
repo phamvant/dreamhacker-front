@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator";
 //   username: "PhamVanThuan",
 //   avatarLink: "https://github.com/shadcn.png",
 //   liked: 50,
+href: "https://github.com/phamvant/dreamhacker-front";
 // };
 
 const mockDataArray = [
@@ -20,6 +21,7 @@ const mockDataArray = [
     username: "User1",
     avatarLink: "https://github.com/shadcn.png",
     liked: 15,
+    href: "https://github.com/phamvant/dreamhacker-front",
   },
   {
     title: "Sample Title 2",
@@ -29,6 +31,7 @@ const mockDataArray = [
     username: "User2",
     avatarLink: "https://github.com/shadcn.png",
     liked: 30,
+    href: "https://github.com/phamvant/dreamhacker-front",
   },
   {
     title: "Sample Title 3",
@@ -38,6 +41,7 @@ const mockDataArray = [
     username: "User3",
     avatarLink: "https://github.com/shadcn.png",
     liked: 25,
+    href: "https://github.com/phamvant/dreamhacker-front",
   },
   {
     title: "Sample Title 4",
@@ -47,6 +51,7 @@ const mockDataArray = [
     username: "User4",
     avatarLink: "https://github.com/shadcn.png",
     liked: 10,
+    href: "https://github.com/phamvant/dreamhacker-front",
   },
   {
     title: "Sample Title 5",
@@ -56,6 +61,7 @@ const mockDataArray = [
     username: "User5",
     avatarLink: "https://github.com/shadcn.png",
     liked: 40,
+    href: "https://github.com/phamvant/dreamhacker-front",
   },
   {
     title: "Sample Title 6",
@@ -65,6 +71,7 @@ const mockDataArray = [
     username: "User6",
     avatarLink: "https://github.com/shadcn.png",
     liked: 18,
+    href: "https://github.com/phamvant/dreamhacker-front",
   },
   {
     title: "Sample Title 7",
@@ -74,6 +81,7 @@ const mockDataArray = [
     username: "User7",
     avatarLink: "https://github.com/shadcn.png",
     liked: 22,
+    href: "https://github.com/phamvant/dreamhacker-front",
   },
   {
     title: "Sample Title 8",
@@ -83,6 +91,7 @@ const mockDataArray = [
     username: "User8",
     avatarLink: "https://github.com/shadcn.png",
     liked: 28,
+    href: "https://github.com/phamvant/dreamhacker-front",
   },
 ];
 

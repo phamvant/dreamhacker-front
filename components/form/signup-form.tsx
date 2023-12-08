@@ -1,11 +1,10 @@
 "use client";
 
-import * as z from "zod";
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ReloadIcon } from "@radix-ui/react-icons";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -18,6 +17,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
+import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import {
   Select,
   SelectContent,
@@ -25,8 +25,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
-import { signIn } from "next-auth/react";
 
 const formSchema = z.object({
   username: z.string().min(2).max(50),
