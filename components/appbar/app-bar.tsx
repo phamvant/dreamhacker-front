@@ -12,7 +12,7 @@ export async function AppBar() {
 
   return (
     <div className="z-50 border-b fixed w-screen backdrop-filter backdrop-blur-2xl bg-white/50 lg:px-80">
-      <div className="flex lg:h-20 items-center px-4 flex-row justify-between">
+      <div className="flex h-14 lg:h-20 items-center px-4 flex-row justify-between">
         <div className="flex flex-row items-center gap-2 lg:gap-4">
           <Sidebar />
           <Link href={"/"}>

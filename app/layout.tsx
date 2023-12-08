@@ -26,7 +26,7 @@ export default function RootLayout({
       >
         <Providers>
           <AppBar />
-          <div className="pt-16">{children}</div>
+          <div className="pt-10 lg:pt-16">{children}</div>
           <Footer />
         </Providers>
       </body>
