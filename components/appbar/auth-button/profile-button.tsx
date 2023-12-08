@@ -23,7 +23,7 @@ const ProfileButton: React.FC<{ props: Props }> = ({ props }) => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-          <Avatar className="h-8 w-8 m-0">
+          <Avatar className="h-10 w-10 m-0">
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback className="m-0">SC</AvatarFallback>
           </Avatar>

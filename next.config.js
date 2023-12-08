@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    BCKEND_URL: "https://ptops.xyz",
+    BACKEND_URL: "https://ptops.xyz",
   },
 };
 

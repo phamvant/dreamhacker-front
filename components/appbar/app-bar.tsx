@@ -11,8 +11,8 @@ export async function AppBar() {
   const session = await getServerSession(authOptions);
 
   return (
-    <div className="z-50 border-b fixed w-screen backdrop-filter backdrop-blur-2xl bg-white/50">
-      <div className="flex h-16 items-center px-4 flex-row justify-between">
+    <div className="z-50 border-b fixed w-screen backdrop-filter backdrop-blur-2xl bg-white/50 lg:px-80">
+      <div className="flex lg:h-20 items-center px-4 flex-row justify-between">
         <div className="flex flex-row items-center gap-2 lg:gap-4">
           <Sidebar />
           <Link href={"/"}>
@@ -29,11 +29,14 @@ export async function AppBar() {
           </Link>
         </div>
         <div className="hidden xl:block">
-          <MainNav isLogged={session ? true : false} className="mx-6" />
+          <MainNav
+            isLogged={session ? true : false}
+            className={`mx-6 ${session ? "" : "ml-44"}`}
+          />
         </div>
-        <div className="ml flex items-center space-x-4">
+        <div className="ml flex items-center space-x-8">
           <Search
-            className={"hidden md:block lg:block sm:w-[100px] md:w-[200px]"}
+            className={`hidden md:block lg:block sm:w-[100px] lg:w-[280px] h-10`}
           />
           <AuthButton session={session} />
         </div>
