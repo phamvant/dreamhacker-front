@@ -17,7 +17,7 @@ const EditorPage = () => {
             Preview
           </Button>
           <Button className="rounded-full bg-blue-600 hover:bg-blue-500">
-            Publish
+            Save
           </Button>
         </div>
       </div>
